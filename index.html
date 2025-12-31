@@ -1,14 +1,102 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Specially For You!!!</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
-</html>
+<head>
+  <meta charset="UTF-8">
+  <title>Specially For You ❤️</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: black;
+      color: white;
+      overflow: hidden;
+    }
+
+    .page {
+      display: none;
+      height: 100vh;
+      padding: 30px;
+      box-sizing: border-box;
+    }
+
+    .page.active {
+      display: block;
+    }
+
+    .nav {
+      position: absolute;
+      bottom: 20px;
+      right: 20px;
+    }
+
+    button {
+      background: white;
+      color: black;
+      border: none;
+      padding: 10px 16px;
+      margin-left: 10px;
+      border-radius: 20px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- PAGE 1 -->
+  <div class="page active">
+    <h1>Happy New Year ❤️</h1>
+    <p>This website is made only for you.</p>
+  </div>
+
+  <!-- PAGE 2 -->
+  <div class="page">
+    <h2>How it started</h2>
+    <p>
+      Write your first long paragraph here.
+    </p>
+    <p>
+      Write your second paragraph here.
+    </p>
+  </div>
+
+  <!-- PAGE 3 -->
+  <div class="page">
+    <h2>Memories ✨</h2>
+    <p>Add dates, moments, feelings.</p>
+  </div>
+
+  <!-- Navigation -->
+  <div class="nav">
+    <button onclick="prev()">⟵ Back</button>
+    <button onclick="next()">Next ➜</button>
+  </div>
+
+  <script>
+    let current = 0;
+    const pages = document.querySelectorAll('.page');
+
+    function show(index) {
+      pages.forEach(p => p.classList.remove('active'));
+      pages[index].classList.add('active');
+    }
+
+    function next() {
+      if (current < pages.length - 1) {
+        current++;
+        show(current);
+      }
+    }
+
+    function prev() {
+      if (current > 0) {
+        current--;
+        show(current);
+      }
+    }
+  </script>
+
+</body>
+</html>
